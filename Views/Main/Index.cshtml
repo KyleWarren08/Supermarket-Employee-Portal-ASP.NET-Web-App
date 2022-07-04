@@ -1,0 +1,36 @@
+﻿@model ABCSupermarket_19001700_Final.Models.Products
+
+ 
+@{
+    ViewBag.Title = "Index";
+}
+
+<div>
+    @using (Html.BeginForm("Index", "Main", new { id = Model.RowKey}, FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+    <fieldset>
+
+        <legend>Add a Product</legend>
+
+        <div>
+            <a href="@Url.Action("Get", "Main")">View all Products</a>
+        </div>
+        <br />
+        <label>Product Name:‎</label>
+        <input type="text" name="ProductName" required="required" value="@Model.ProductName" />
+        <br /><br />
+        <label>Product Description:</label>
+        <input type="text" name="ProductDescription" required="required" value="@Model.ProductDescription" />
+        <br /><br />
+        <label>Product Price:</label>
+        <input type="text" name="ProductPrice" required="required" value="@Model.ProductPrice" />
+        <br /><br />
+        <label>Product Picture:</label>
+        <br />
+        <input type="file" name="uploadFile" />
+        <br />
+        <input type="submit" value="Submit" />
+    </fieldset>
+    }
+</div>
+

@@ -1,0 +1,41 @@
+﻿@model List<ABCSupermarket_19001700_Final.Models.Products>
+
+@{
+    ViewBag.Title = "Get";
+}
+
+<legend>Product List</legend>
+<div>
+    <a href="@Url.Action("Index", "Main")">Add New Product</a>
+    
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product Picture</th>
+            <th>Product Name</th>
+            <th>Product Description</th>
+            <th>Product Price</th>
+            <th>Manage</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (ABCSupermarket_19001700_Final.Models.Products ProductObj in Model)
+        {
+            <tr>
+                <td><img class="productPicture" src="@ProductObj.FilePath" alt="@ProductObj.FilePath" /></td>
+                <td>@ProductObj.ProductName</td>
+                <td>@ProductObj.ProductDescription</td>
+                <td>R @ProductObj.ProductPrice</td>
+                <td>
+                    <span>@Html.ActionLink("Edit", "Index", "Main", new { id = ProductObj.RowKey }, new { })</span>
+                    <span>@Html.ActionLink("Delete", "Delete", "Main", new { id = ProductObj.RowKey }, new { })</span>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
